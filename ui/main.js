@@ -1,8 +1,6 @@
-
-
 //counter code
-var counter=0;
 var button=document.getElementById('counter');
+var counter=0;
 
 button.onClick= function(){
     //Make a request to counter endpoint
@@ -15,5 +13,3 @@ button.onClick= function(){
     span.innerHTML=counter.toString();
         
 };
-
-console.log('Loaded!');
