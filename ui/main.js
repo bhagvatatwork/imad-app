@@ -1,4 +1,4 @@
-console.log('Loaded!');
+
 
 //counter code
 var counter=0;
@@ -16,3 +16,4 @@ button.onClick= function(){
         
 };
 
+console.log('Loaded!');
