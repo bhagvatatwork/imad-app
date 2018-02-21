@@ -6,23 +6,52 @@
     <body>
 		<div class="container">
 			<div class="center">
-				<img src="/ui/madi.png" class="img-medium"/>
+				<img id="madi" src="/ui/madi.png" class="img-medium"/>
 			</div>
 			<br>
-			<div class="center text-big bold">
+			<div id="main-txt" class="center text-big bold">
 				Hi! I am your webapp.
 				<br />
 				This is the first change done to source file from imad.hasura CONSOLE.....
 				<br/>
 				This is the second change done from local machine....
 			</div>
-			<div>
+			<hr/>
+			<h3> Personal </h3>
+				Hi, My name is Bhagsi
+			<hr/>	
+			<h3> Professional </h3>
+				I work at ABC
+			<hr/>
+			<div class="footer">
 				This button 
 				<button id="counter"> Click me!!! </button> 
 				has been clicked 
 				<span id="count">0</span> 
 				times.
 			</div>
+			<hr/>
+			<input type="text" id="name" placeholder="name"> </input>
+			<input type="submit" value="Submit" id="submit_btn"> </input>
+			<ul id="namelist">
+				<!-- Dynamically populating now on click of submit button
+				<li>name1</li>
+				<li>name2</li>
+				<li>name3</li>
+				-->
+			</ul>
+			
+			
+			
+			<!-- Inline Java Script
+			<script>
+				alert('Hi I\'m a javascript');
+			</script>
+			-->			
+			<script type="text/javascript" src="ui/main.js">   
+				<!--java script as a file called (this is mandatory along with handling of this file at server end in server.js file) -->
+			</script>
+			
 		</div>
         
     </body>
