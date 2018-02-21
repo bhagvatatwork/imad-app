@@ -1,3 +1,16 @@
+console.log('Loaded!!!');
+
+//Change the text of the div element where id='main-txt'
+var element= document.getElementById('main-txt');
+element.innerHTML='New value';
+
+// move the image by 200 pixel on click
+var img=document.getElementById('madi');
+img.onclick	= function(){
+	img.style.marginLeft='200px';
+};
+
+/*
 //counter code
 var button=document.getElementById('counter');
 var counter=0;
@@ -13,3 +26,5 @@ button.onClick= function(){
     span.innerHTML=counter.toString();
         
 };
+
+*/
