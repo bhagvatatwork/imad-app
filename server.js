@@ -119,8 +119,6 @@ app.get('/submit-name', function (req, res) {   //URL: /submit-name?name=xxx
 
 
 app.get('/articles/:articleName', function (req, res) {    // /:articleName  - provided by express framework
-	//var articleName= req.params.articleName;
-	res.send(createTemplate(articles[articleName]));  // new implementation wherein content is published dynamically at run time
 	
 	pool.query("SELECT * FROM article WHERE title = '", +req.params.articleName + "'",function(err,result){
 	   if(err) {
