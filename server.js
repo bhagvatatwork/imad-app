@@ -16,18 +16,6 @@ var config={
     database: "bhagvatatwork"
 };
 
-/* NA as created list of articles data that varies from one page to other
-var articleOne={
-	title: 'Article One | Bhagvat',
-	heading: 'Article One',
-	date: 'Sep 5, 2016',
-	content:`
-	<p>
-			This is the content from first article.This is the content from first article.This is the content from first article.This is the content from first article.This is the content from first article.This is the content from first article.This is the content from first article.
-	</p>`
-};
-*/
-
 var articles={
 	'article-one': {
 		title: 'Article One | Bhagvat',
@@ -130,30 +118,25 @@ app.get('/submit-name', function (req, res) {   //URL: /submit-name?name=xxx
 });
 
 
-
-/*
-app.get('/article-one', function (req, res) {
-  //res.sendFile(path.join(__dirname, 'ui', 'article-one.html'));  // earlier implementation with file article-one.html
-  res.send(createTemplate(articles.articleOne));  // new implementation wherein content is published dynamically at run time
-});
-
-app.get('/article-two', function (req, res) {
-  //res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));  // earlier implementation with file article-two.html
-  res.send(createTemplate(articles.articleTwo));  // new implementation wherein content is published dynamically at run time
-});
-*/
-
-app.get('/:articleName', function (req, res) {    // /:articleName  - provided by express framework
-	var articleName= req.params.articleName;
+app.get('articles/:articleName', function (req, res) {    // /:articleName  - provided by express framework
+	//var articleName= req.params.articleName;
 	res.send(createTemplate(articles[articleName]));  // new implementation wherein content is published dynamically at run time
+	
+	pool.query("SELECT * FROM article WHERE title = '", +req.params.articleName + "'",function(err,result){
+	   if(err) {
+	       res.status(500).send(err.toString());
+	   }else{
+	       if(result.rows.length === 0){
+	           res.status(404).send("Article not found...");
+	       }
+	       else{
+	           var articleData=result.rows[0];
+	           res.send(createTemplate(articleData));
+	       }
+	   }
+	});
 });
 
-/*
-//Article three in current form will not work as request will go to above function validation and will not reach out to this function
-app.get('/article-three', function (req, res) {
-  res.send("This is from Article-Three page");
-});
-*/
 
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
