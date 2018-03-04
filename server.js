@@ -118,7 +118,7 @@ app.get('/submit-name', function (req, res) {   //URL: /submit-name?name=xxx
 });
 
 
-app.get('/:articleName', function (req, res) {    // :articleName  - provided by express framework
+app.get('/articles/:articleName', function (req, res) {    // :articleName  - provided by express framework
 	
 	pool.query("SELECT * FROM article WHERE title = '", + req.params.articleName + "'",function(err,result){
 	   if(err) {
