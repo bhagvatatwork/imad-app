@@ -16,26 +16,6 @@ var config={
     database: "bhagvatatwork"
 };
 
-var articles={
-	'article-one': {
-		title: 'Article One | Bhagvat',
-		heading: 'Article One',
-		date: 'Sep 5, 2016',
-		content:`
-		<p>
-			This is the content from first article.This is the content from first article.This is the content from first article.This is the content from first article.This is the content from first article.This is the content from first article.This is the content from first article.
-		</p>`
-	},	
-	'article-two': {
-		title: 'Article Two | Bhagsi',
-		heading: 'Article Two',
-		date: 'Jan 1, 2016',
-		content:`
-		<p>
-						This is the content from Second article.
-		</p>`
-	}	
-};
 
 // function to create common template (for article-one and article-two) and the dynamic data is filled by the calling function
 function createTemplate (data){
