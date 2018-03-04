@@ -61,7 +61,9 @@ function createTemplate (data){
 					${heading}
 				</h3>
 				<div>
-					${date}
+				    ${date.toDateString()}
+					<!--instead of using just 'date' as it shows date in java script object form so shown as 
+					Mon Sep 05 2016 00:00:00 GMT+0000 (UTC); so to change it into our format -->
 				</div>
 				<div>
 					${content}
