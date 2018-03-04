@@ -97,7 +97,12 @@ app.get('/counter',function(req,res){
 });
 
 app.get('/articles/:articleName', function (req, res) {    // :articleName  - provided by express framework
+	/* SQL injection: if user do not enter 'article-one' and instead enter ';DELETE from article WHERE 'a'='a
+	SELECT * FROM article WHERE title = ''
 	pool.query("SELECT * FROM article WHERE title = '", + req.params.articleName + "'",function(err,result){
+	......hence we need to user query parameterization provided by SQL librabry */
+	
+	pool.query("SELECT * FROM article WHERE title = $1", [req.params.articleName],function(err,result){
 	   if(err) {
 	       res.status(500).send(err.toString());
 	   }else{
