@@ -28,7 +28,7 @@ submit.onclick=function(){       // Make a request to server and send the name
 	
 	request.open("POST",'http://bhagvatatwork.imad.hasura-app.io/login',true);
 	request.setRequestHeader('Content-Type','application/json');
-	request.send(JSON.strigify({username: username, password: password}));
+	request.send(JSON.stringify({username: username, password: password}));
 };
 
 
