@@ -62,8 +62,9 @@ app.get('/', function (req, res) {
 function hash(input,salt){
     // How do we create a hash?
     var hashed=crypto.pbkdf2Sync(input,salt,10000,512,'sha512');
-    console.log('hashed password value (HPV): ',hashed);
-    console.log('HPV (encoded in hex format): ',hashed.toString('hex'));
+    console.log('hashed password value (HPV): ${hashed}');
+    var hashedhex = hashed.toString('hex');
+    console.log('HPV (encoded in hex format): ${hashedhex}');
     return hashed.toString('hex');
 }
 app.get('/hash/:input', function(req,res){
